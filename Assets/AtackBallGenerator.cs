@@ -16,6 +16,9 @@ public class AtackBallGenerator : MonoBehaviour {
         {
             GameObject AtackBall =
                 Instantiate(AtackBallPrefab) as GameObject;
+
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Vector3 worldDir = ray.direction;
             AtackBall.GetComponent<AtackBallController>().Shoot(
                 new Vector3(0, 200, 2000));
         }
